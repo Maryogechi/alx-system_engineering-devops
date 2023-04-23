@@ -1,0 +1,3 @@
+#!/bin/bash
+ls -al . .. /boo#!/bin/bash
+ls -al . .. /boot
