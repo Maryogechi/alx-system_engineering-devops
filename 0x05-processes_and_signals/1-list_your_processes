@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script list processes in a process table
+
+ps auxf
