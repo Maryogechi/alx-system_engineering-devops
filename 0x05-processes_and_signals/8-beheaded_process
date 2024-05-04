@@ -1,3 +1,4 @@
-s script invokes SIGKILL signal
+#!/usr/bin/env bash
+This script invokes SIGKILL signal
 
 pkill -9 -f 7-highlander
