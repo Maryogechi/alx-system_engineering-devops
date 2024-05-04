@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 #A bash script that describes its own PID
-echo "The PID of this script is 4120
+echo "The PID of this script is $$"
 
