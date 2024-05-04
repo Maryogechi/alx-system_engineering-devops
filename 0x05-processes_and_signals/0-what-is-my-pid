@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #A bash script that describes its own PID
-echo "$$"
+echo $$
 
