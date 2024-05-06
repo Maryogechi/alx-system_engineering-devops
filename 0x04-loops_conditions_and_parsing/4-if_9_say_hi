@@ -5,6 +5,7 @@ NUMBER=0
 while [ $NUMBER -lt 9 ]
 do
     echo "Best School"
+
 if [ $NUMBER -eq 7 ]; then
     echo "Hi"
 fi    
