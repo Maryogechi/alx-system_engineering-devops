@@ -2,12 +2,12 @@
 #A Bash script that displays Best School 10 times
 
 NUMBER=0
-while [ $NUMBER -lt 9 ]
+while [ $NUMBER -lt 10 ]
 do
-    echo "Best School"
-
-if [ $NUMBER -eq 7 ]; then
-    echo "Hi"
-fi    
+    if [ $NUMBER == 9 ]
+    then
+        echo "Hi"
+    fi
+     echo "Best School"
     ((NUMBER ++))
 done
