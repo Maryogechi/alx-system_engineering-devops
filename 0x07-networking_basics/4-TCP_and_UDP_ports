@@ -1,5 +1,5 @@
-#!/bin/bash
-# Run netstat to display listening ports and filter out non-listening sockets
+#!/usr/bin/env bash
+# A Script to display listening ports and filter
 
 echo "Active Internet connections (only servers)"
 ss -tuln -p
