@@ -1,0 +1,4 @@
+#!/bin/bash
+# Run netstat to display listening ports and filter out non-listening sockets
+
+netstat -tuln | grep 'LISTEN'
