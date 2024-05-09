@@ -1,4 +1,7 @@
 #!/bin/bash
 # Run netstat to display listening ports and filter out non-listening sockets
 
-netstat -tuln | grep 'LISTEN'
+echo "Active Internet connections (only servers)"
+ss -tuln -p
+echo "Active UNIX domain sockets (only servers)"
+ss -xl -p
