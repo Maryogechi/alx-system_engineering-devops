@@ -1,7 +1,28 @@
 #!/usr/bin/env bash
 # A Script to display listening ports and filter
 
+#!/bin/bash
+
 echo "Active Internet connections (only servers)"
-ss -tuln -p | grep 'LISTEN'
+echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
+netstat -tuln | awk '$NF == "LISTEN" {print $1,$2,$4,$5,$6}' | while read proto recvq sendq local foreign; do
+    pid=$(lsof -i $proto@$local | awk 'NR==2 {print $2}')
+    program=$(ps -p $pid -o comm=)
+    echo "$proto $recvq $sendq $local $foreign LISTEN      $pid/$program"
+done
+
+echo ""
+
 echo "Active UNIX domain sockets (only servers)"
-ss -xl -p | grep 'LISTEN'
+echo "Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path"
+netstat -lx | awk '$NF == "LISTEN" {print $1,$2,$3,$4,$5,$6,$7}' | while read proto refcnt flags type state inode path; do
+    pid=$(lsof -U $path | awk 'NR==2 {print $2}')
+    program=$(ps -p $pid -o comm=)
+    echo "$proto $refcnt $flags $type $state $inode $pid/$program    $path"
+done
+
+
+#echo "Active Internet connections (only servers)"
+#netstat -tuln -p | grep 'LISTEN'
+#echo "Active UNIX domain sockets (only servers)"
+#netstat -xl -p | grep 'LISTEN'
