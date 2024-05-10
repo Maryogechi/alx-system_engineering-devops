@@ -2,6 +2,6 @@
 # A Script to display listening ports and filter
 
 echo "Active Internet connections (only servers)"
-ss -tuln -p
+netstat -tuln -p
 echo "Active UNIX domain sockets (only servers)"
-ss -xl -p
+netstat-xl -p
